@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial';
+}
+
+.content{
+   
+    margin: 10px;
+    border: 1px solid blue;
+    margin-left: 15px;
+}
+.content2{
+    margin: 10px;
+}
+h4,table{
+    margin-left: 15px;
+}
+.star-rating{
+    user-select: none;
+}
+.star{
+    font-size: 1.5em;
+    color: #ff9800;
+    background-color: unset;
+    border: none;
+    height: 31px;
+    padding: 2px;
+    margin-bottom: 5px;
+    
+}
+.star:hover{
+    cursor: pointer;
+
+}
+
+#rigthData{
+   width: 273.859px;
+}
+#logoUser{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}

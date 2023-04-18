@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+   
+    <title>Tarea 1 Eduardo Contreras</title>
+</head>
+<body>
+    <div class="content">
+        <div class="content2">
+            <h1>Sistema de Seguimiento de Proyectos</h1>
+            <div class="content" >
+                <h4>Agregar Actividad</h4>
+                <table class="tableContent" id="dataTable">
+                    <tr>
+                        <td>Rut: </td>
+                        <td><input type="text" id="rut"></td>
+                        <td><button onclick="searchUser()">Buscar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre: </td>
+                        <td><input type="text" id="name"></td>
+                        <td><img src="img/user.png" alt="logo" id="logoUser"></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre Actividad: </td>
+                        <td><input type="text" id="nameTask"></td>
+                    </tr>
+                    <tr>
+                        <td>Estatus: </td>
+                        <td>
+                            <select  id="selectEstatus">
+                                <option value=""></option>
+                                <option value="Terminado">Terminado</option>
+                                <option value="En curso">En curso</option>
+                                <option value="Atrasado">Atrasado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Avance (%): </td>
+                        <td><input type="text" id="advance"></td>
+                    </tr>
+                    <tr>
+                        <td>Término: </td>
+                        <td><input type="date" id="endTask" min="2023-01-01" max="2023-12-31"></td>
+                    </tr>
+                    <tr>
+                        <td>Prioridad:</td>
+                        <td>
+                            <div class="star-rating">
+                                <button class="star">&#9734;</button>
+                                <button class="star">&#9734;</button>
+                                <button class="star">&#9734;</button>
+                                <button class="star">&#9734;</button>
+                                <button class="star">&#9734;</button>
+                            </div>
+                              
+                        </td>
+                        <td><button onclick="addTask()">Agregar</button></td>
+                    </tr>
+                </table>
+                
+            </div>
+            <img src="img/logo.png" alt="logo" width="100" height="100">
+
+            <div class="content">
+                <h4>Actividades</h4>
+                <table>
+                    <th>
+                        <td>#</td>
+                        <td>Actividad</td>
+                        <td>Encargado</td>
+                        <td>Estatus</td>
+                        <td>Avance</td>
+                        <td>Término</td>
+                        <td>Prioridad</td>
+                    </th>
+                </table>
+            </div>
+        </div>
+        
+
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
