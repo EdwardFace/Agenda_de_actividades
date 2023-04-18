@@ -3,12 +3,27 @@ body{
     padding: 0;
     font-family: 'Arial';
 }
-
-.content{
-   
+.contentMain{
+    
+    max-width: max-content;
     margin: 10px;
     border: 1px solid blue;
     margin-left: 15px;
+}
+
+.content{
+    width: 600px;
+    margin: 10px;
+    border: 1px solid blue;
+    margin-left: 15px;
+    float: left;
+
+}
+.tableContent{
+    width: 590px;
+}
+#logoTask{
+    margin: 30px;
 }
 .content2{
     margin: 10px;
@@ -41,4 +56,11 @@ h4,table{
     width: 45px;
     height: 45px;
     border-radius: 50%;
+}
+.clearfix{
+    float: none;
+    clear: both;
+}
+button{
+    padding: 10px 20px;
 }

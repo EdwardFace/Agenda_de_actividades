@@ -9,7 +9,7 @@
     <title>Tarea 1 Eduardo Contreras</title>
 </head>
 <body>
-    <div class="content">
+    <div class="contentMain">
         <div class="content2">
             <h1>Sistema de Seguimiento de Proyectos</h1>
             <div class="content" >
@@ -18,7 +18,7 @@
                     <tr>
                         <td>Rut: </td>
                         <td><input type="text" id="rut"></td>
-                        <td><button onclick="searchUser()">Buscar</button></td>
+                        <td><button onclick="searchUser()" id="btnSearch">Buscar</button></td>
                     </tr>
                     <tr>
                         <td>Nombre: </td>
@@ -60,14 +60,14 @@
                             </div>
                               
                         </td>
-                        <td><button onclick="addTask()">Agregar</button></td>
+                        <td><button onclick="addTask()" id="btnAdd">Agregar</button></td>
                     </tr>
                 </table>
                 
             </div>
-            <img src="img/logo.png" alt="logo" width="100" height="100">
-
-            <div class="content">
+            <img src="img/logo.png" alt="logo" width="100" height="100" id="logoTask">
+            
+            <div class="content clearfix">
                 <h4>Actividades</h4>
                 <table>
                     <th>
