@@ -14,4 +14,7 @@ allstars.forEach((star,i)=>{
     }
 });
 
+let btnAgregar = document.getElementById('btnAdd');
+btnAgregar.addEventListener("click",function(){
 
+});

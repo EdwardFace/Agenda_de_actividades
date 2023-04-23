@@ -11,23 +11,28 @@
 <body>
     <div class="contentMain">
         <div class="content2">
+            
             <h1>Sistema de Seguimiento de Proyectos</h1>
-            <div class="content" >
+            
+          
+            
+            <div class="banner">
+                <div class="content" >
                 <h4>Agregar Actividad</h4>
                 <table class="tableContent" id="dataTable">
                     <tr>
                         <td>Rut: </td>
                         <td><input type="text" id="rut"></td>
-                        <td><button onclick="searchUser()" id="btnSearch">Buscar</button></td>
+                        <td><button onclick="buscarUsuario()" id="btnSearch">Buscar</button></td>
                     </tr>
                     <tr>
                         <td>Nombre: </td>
-                        <td><input type="text" id="name"></td>
+                        <td><input type="text" id="nombre"></td>
                         <td><img src="img/user.png" alt="logo" id="logoUser"></td>
                     </tr>
                     <tr>
                         <td>Nombre Actividad: </td>
-                        <td><input type="text" id="nameTask"></td>
+                        <td><input type="text" id="nombreAct"></td>
                     </tr>
                     <tr>
                         <td>Estatus: </td>
@@ -42,11 +47,11 @@
                     </tr>
                     <tr>
                         <td>Avance (%): </td>
-                        <td><input type="text" id="advance"></td>
+                        <td><input type="text" id="avance"></td>
                     </tr>
                     <tr>
                         <td>Término: </td>
-                        <td><input type="date" id="endTask" min="2023-01-01" max="2023-12-31"></td>
+                        <td><input type="date" id="fechaTermino" min="2023-01-01" max="2023-12-31"></td>
                     </tr>
                     <tr>
                         <td>Prioridad:</td>
@@ -64,25 +69,29 @@
                     </tr>
                 </table>
                 
+                </div>
+                <div class="content clearfix">
+                    <h4>Actividades</h4>
+                    <table id="tablaEncargados">
+                        <th>
+                            <td>#</td>
+                            <td>Actividad</td>
+                            <td>Encargado</td>
+                            <td>Estatus</td>
+                            <td>Avance</td>
+                            <td>Término</td>
+                            <td>Prioridad</td>
+                        </th>
+                        
+                    </table>
+                </div>
             </div>
-            <img src="img/logo.png" alt="logo" width="100" height="100" id="logoTask">
             
-            <div class="content clearfix">
-                <h4>Actividades</h4>
-                <table>
-                    <th>
-                        <td>#</td>
-                        <td>Actividad</td>
-                        <td>Encargado</td>
-                        <td>Estatus</td>
-                        <td>Avance</td>
-                        <td>Término</td>
-                        <td>Prioridad</td>
-                    </th>
-                </table>
-            </div>
+           
+            
+            
         </div>
-        
+        <img src="img/logo.png" alt="logo" width="100" height="100" id="logoTask">
 
     </div>
     <script src="main.js"></script>
