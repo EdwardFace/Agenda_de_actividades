@@ -24,17 +24,14 @@ body{
     border: 1px solid #ccc;
     margin-left: 15px;
     float: left;
-    background-color: #d6d3d3;
+    background-color: #f0ecec;
 
 }
 .tableContent{
     width: 590px;
 
 }
-.tableContent > table > tbody > tr > td{
-    min-width: 190px;
-    height: 41px;
-}
+
 #logoTask{
     margin: 30px;
 }
@@ -49,9 +46,23 @@ body{
 h4,table{
     margin-left: 10px;
 }
+input{
+    padding: 5px;
+    width: 170px;
+    height: 20px;
+}
 
 #btnSearch,#btnAdd{
+    width: 100px;
     margin: 5px auto;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #92fe9d;
+    
+}
+#btnSearch,#btnAdd:hover{
+    cursor: pointer;
+    background-color: #b0f8b7;
 }
 .star-rating{
     user-select: none;
@@ -86,3 +97,12 @@ h4,table{
 button{
     padding: 10px 20px;
 }
+#tablaEncargados {
+    width: 80%;
+    margin: 10px 20px;
+}
+#tablaEncargados >tbody>tr > td{
+    background-color: #c4c0c0;
+    text-align: center;
+}
+
