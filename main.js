@@ -3,6 +3,7 @@ var current_star_level;
 var meses = ['en','febr','mzo','abr','my','jun','jul','ag','sept','oct','nov','dic'];
 var allstars = document.querySelectorAll('.star');
 var tareasRegistradas = 0;
+var rutFinded = false;
 
 // Global consts
 const userLogo = "img/user.png";
@@ -73,6 +74,7 @@ allstars.forEach((star,i)=>{
 window.onload = (event) => {
     document.getElementById('form-actividad').reset();
     tareasRegistradas = 0;
+    rutFinded = false;
 };
 
 function searchUser(){
@@ -86,6 +88,7 @@ function searchUser(){
     if(encargado != undefined){
         nombre.value = encargado.nombre;
         imagenUrl.src = encargado.imagenUrl;
+        rutFinded = true;
     }else{
         console.log('encargado no existe');
     }
