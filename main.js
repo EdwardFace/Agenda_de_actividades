@@ -171,7 +171,7 @@ function crearRating(tabla){
              estrella.innerHTML = '&#9734';
 
         }
-        estrella.className="star"
+        estrella.className="starTable"
         tupla.appendChild(estrella);
     }
     tabla.appendChild(tupla);

@@ -90,6 +90,16 @@ input{
     margin-bottom: 5px;
     
 }
+.starTable{
+    font-size: 1.5em;
+    color: #ff9800;
+    background-color: unset;
+    border: none;
+    height: 31px;
+    padding: 2px;
+    margin-bottom: 5px;
+    
+}
 .star:hover{
     cursor: pointer;
 
