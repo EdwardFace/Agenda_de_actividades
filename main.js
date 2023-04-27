@@ -2,7 +2,6 @@
 var current_star_level = 0;
 var meses = ['en','febr','mzo','abr','my','jun','jul','ag','sept','oct','nov','dic'];
 var tareasRegistradas = 0;
-var rutFinded = false;
 
 // Global consts
 const userLogo = "img/user.png";
@@ -58,7 +57,6 @@ var encargados = [
 window.onload = (event) => {
     clearInputs()
     tareasRegistradas = 0;
-    rutFinded = false;
 };
 
 
@@ -85,15 +83,16 @@ function searchUser(){
     if(encargado != undefined){
         nombre.value = encargado.nombre;
         imagenUrl.src = encargado.imagenUrl;
-        rutFinded = true;
     }else{
+        window.alert('RUT no registrado.');
         console.log('encargado no existe');
     }
 
 }
 
-function validateForm(actividadNombre, estatus, avance, fechaTermino){
+function validateForm(actividadNombre, estatus, avance, fechaTermino, rut){
     let formValid = true;
+    let encargado = encargados.find(element=> element.rut == rut);
     if(actividadNombre == ""){
         window.alert("Debe introducir el nombre de la actividad.");
         formValid = false;
@@ -112,6 +111,9 @@ function validateForm(actividadNombre, estatus, avance, fechaTermino){
     }else if(current_star_level<1 || current_star_level>5){
         window.alert("Debe calificar la prioridad entre 1 a 5 estrellas.");
         formValid = false;
+    }else if(encargado == undefined){
+        window.alert("RUT no registrado.");
+        formValid = false;
     }
     return formValid;
 }
@@ -121,9 +123,9 @@ function addTask(){
     let estatus = document.querySelector('#selectEstatus').value;
     let avance = document.querySelector('#avance').value;
     let fechaTermino = document.querySelector('#fechaTermino').value;
-    if(rutFinded && validateForm(actividadNombre, estatus, avance, fechaTermino)){
+    let rut = document.querySelector('#rut').value;
+    if(validateForm(actividadNombre, estatus, avance, fechaTermino, rut)){
         tareasRegistradas++;
-        let rut = document.querySelector('#rut').value;
         let tabla = document.getElementById('tablaEncargados');
         let filaN = document.createElement('tr');
         console.log(fechaTermino)
@@ -145,8 +147,6 @@ function addTask(){
             tablaEstrella
         );
         tabla.appendChild(filaN);
-    }else if(!rutFinded){
-        window.alert("Primero debe buscar el RUT ingresado")
     }
 }
 
@@ -215,7 +215,6 @@ function insertarDatos(tupla,rut,numeroTupla,actividad,estatus,avance,fechaTermi
     tupla.appendChild(dato6);
     tupla.appendChild(dato7);
     clearInputs()
-    rutFinded = false;
 }
 
 function clearInputs(){
