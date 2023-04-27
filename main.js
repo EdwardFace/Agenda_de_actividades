@@ -124,7 +124,6 @@ function addTask(){
         tablaEstrella
     );
     tabla.appendChild(filaN);
-    document.getElementById('form-actividad').reset();
 }
 
 function crearBarra(avance){
@@ -191,6 +190,7 @@ function insertarDatos(tupla,rut,numeroTupla,actividad,estatus,avance,fechaTermi
     tupla.appendChild(dato5);
     tupla.appendChild(dato6);
     tupla.appendChild(dato7);
+    document.getElementById('form-actividad').reset();
 }
 
 
