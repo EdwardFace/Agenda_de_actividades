@@ -54,14 +54,6 @@ let encargados = [
 ];
 let meses = ['en','febr','mzo','abr','my','jun','jul','ag','sept','oct','nov','dic'];
 
-
-
-
-function addTask(){
-    
-
-}
-
 function searchUser(){
     let rut = document.querySelector('#rut').value;
     console.log(rut);
@@ -96,14 +88,10 @@ function addTask(){
     let tablaEstrella = document.createElement('table');
     crearRating(tablaEstrella);
 
-   
-
-
     insertarDatos(filaN,rut,contador,actividadNombre,estatus,barra,fechaFinal,tablaEstrella);
     tabla.appendChild(filaN);
     contador++;
 }
-
 
 function crearBarra(avance){
     let barra = document.createElement('progress');
@@ -112,18 +100,19 @@ function crearBarra(avance){
     barra.value = avance;
     return barra;
 }
+
 function crearRating(tabla){
     let tupla = document.createElement('tr');
     for(let i=1;i<=5;i++){
         let estrella = document.createElement('td');
         if(current_star_level >= i){
-           
-           
+
             estrella.innerHTML = '&#9733';
             
         }else{
             
              estrella.innerHTML = '&#9734';
+
         }
         estrella.className="star"
         tupla.appendChild(estrella);
@@ -132,8 +121,6 @@ function crearRating(tabla){
 }
 
 function insertarDatos(tupla,rut,numeroTupla,actividad,estatus,avance,fechaTermino,prioridad){
-    
-
     let dato1 = document.createElement('td');
     dato1.innerHTML = numeroTupla;
 
@@ -147,7 +134,6 @@ function insertarDatos(tupla,rut,numeroTupla,actividad,estatus,avance,fechaTermi
     imagen1.id = "logoUser";
     dato3.appendChild(imagen1);
 
-    
     let dato4 = document.createElement('td');
     dato4.innerHTML = estatus;
     let dato5 = document.createElement('td');
