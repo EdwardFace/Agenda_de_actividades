@@ -169,6 +169,13 @@ function insertarDatos(tupla,rut,numeroTupla,actividad,estatus,avance,fechaTermi
     dato3.appendChild(imagen1);
 
     let dato4 = document.createElement('td');
+    if(estatus == "Terminado"){
+        dato4.style.background = 'green';
+    }else if(estatus == "En curso"){
+        dato4.style.background = 'yellow';
+    }else{
+        dato4.style.background = 'red';
+    }
     dato4.innerHTML = estatus;
     let dato5 = document.createElement('td');
     dato5.appendChild(avance);
