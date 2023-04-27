@@ -3,6 +3,7 @@ var current_star_level;
 var meses = ['en','febr','mzo','abr','my','jun','jul','ag','sept','oct','nov','dic'];
 var allstars = document.querySelectorAll('.star');
 var tareasRegistradas = 0;
+var rutFinded = false;
 
 // Global consts
 const userLogo = "img/user.png";
@@ -54,7 +55,7 @@ var encargados = [
     new Encargado("18.174.184-1","Susy Garrido","img/users/10.jpg")
 ];
 
-// Color the amount of starts clicked
+// Color the amount of stars clicked
 allstars.forEach((star,i)=>{
     star.onclick = function(){
         current_star_level = i+1;
@@ -69,6 +70,12 @@ allstars.forEach((star,i)=>{
     }
 });
 
+// Code execute when the page is load or reload
+window.onload = (event) => {
+    document.getElementById('form-actividad').reset();
+    tareasRegistradas = 0;
+    rutFinded = false;
+};
 
 function searchUser(){
     let rut = document.querySelector('#rut').value;
@@ -81,6 +88,7 @@ function searchUser(){
     if(encargado != undefined){
         nombre.value = encargado.nombre;
         imagenUrl.src = encargado.imagenUrl;
+        rutFinded = true;
     }else{
         console.log('encargado no existe');
     }
@@ -116,6 +124,7 @@ function addTask(){
         tablaEstrella
     );
     tabla.appendChild(filaN);
+    document.getElementById('form-actividad').reset();
 }
 
 function crearBarra(avance){
