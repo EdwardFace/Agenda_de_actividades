@@ -1,19 +1,13 @@
-let current_star_level;
-const allstars = document.querySelectorAll('.star');
-allstars.forEach((star,i)=>{
-    star.onclick = function(){
-        current_star_level = i+1;
-       
-        allstars.forEach((star,j)=>{
-            if(current_star_level>= j+1){
-                star.innerHTML = '&#9733';
-            }else{
-                star.innerHTML = '&#9734';
-            }
-        })
-    }
-});
+// Global vars
+var current_star_level;
+var meses = ['en','febr','mzo','abr','my','jun','jul','ag','sept','oct','nov','dic'];
+var allstars = document.querySelectorAll('.star');
+var tareasRegistradas = 0;
 
+// Global consts
+const userLogo = "img/user.png";
+
+// Class to represent the people that can be found by RUT
 class Encargado{
     rut;
     nombre;
@@ -46,8 +40,8 @@ class Encargado{
     }
 }
 
-const userLogo = "img/user.png";
-let encargados = [
+// People that can be found by RUT
+var encargados = [
     new Encargado("20.405.123-1","Eduardo Contreras",'img/users/1.jpg'),
     new Encargado("11.912.485-5","Mario Cifuentes","img/users/2.jpg"),
     new Encargado("5.678.154-1","Ezio Auditore","img/users/3.jpg"),
@@ -59,7 +53,22 @@ let encargados = [
     new Encargado("20.845.134-9","Andrea Paz","img/users/9.jpg"),
     new Encargado("18.174.184-1","Susy Garrido","img/users/10.jpg")
 ];
-let meses = ['en','febr','mzo','abr','my','jun','jul','ag','sept','oct','nov','dic'];
+
+// Color the amount of starts clicked
+allstars.forEach((star,i)=>{
+    star.onclick = function(){
+        current_star_level = i+1;
+       
+        allstars.forEach((star,j)=>{
+            if(current_star_level>= j+1){
+                star.innerHTML = '&#9733';
+            }else{
+                star.innerHTML = '&#9734';
+            }
+        })
+    }
+});
+
 
 function searchUser(){
     let rut = document.querySelector('#rut').value;
@@ -77,8 +86,9 @@ function searchUser(){
     }
 
 }
-let contador = 1;
+
 function addTask(){
+    tareasRegistradas++;
     let tabla = document.getElementById('tablaEncargados');
     let filaN = document.createElement('tr');
     
@@ -95,9 +105,17 @@ function addTask(){
     let tablaEstrella = document.createElement('table');
     crearRating(tablaEstrella);
 
-    insertarDatos(filaN,rut,contador,actividadNombre,estatus,barra,fechaFinal,tablaEstrella);
+    insertarDatos(
+        filaN,
+        rut,
+        tareasRegistradas,
+        actividadNombre,
+        estatus,
+        barra,
+        fechaFinal,
+        tablaEstrella
+    );
     tabla.appendChild(filaN);
-    contador++;
 }
 
 function crearBarra(avance){
