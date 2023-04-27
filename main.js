@@ -1,7 +1,6 @@
 // Global vars
-var current_star_level;
+var current_star_level = 0;
 var meses = ['en','febr','mzo','abr','my','jun','jul','ag','sept','oct','nov','dic'];
-var allstars = document.querySelectorAll('.star');
 var tareasRegistradas = 0;
 var rutFinded = false;
 
@@ -55,27 +54,25 @@ var encargados = [
     new Encargado("18.174.184-1","Susy Garrido","img/users/10.jpg")
 ];
 
-// Color the amount of stars clicked
-allstars.forEach((star,i)=>{
-    star.onclick = function(){
-        current_star_level = i+1;
-       
-        allstars.forEach((star,j)=>{
-            if(current_star_level>= j+1){
-                star.innerHTML = '&#9733';
-            }else{
-                star.innerHTML = '&#9734';
-            }
-        })
-    }
-});
-
 // Code execute when the page is load or reload
 window.onload = (event) => {
-    document.getElementById('form-actividad').reset();
+    clearInputs()
     tareasRegistradas = 0;
     rutFinded = false;
 };
+
+
+function colorStars(value){
+    current_star_level = value;
+    let allstars = document.querySelectorAll('.star');
+    allstars.forEach((star,i)=>{
+        if(current_star_level>= i+1){
+            star.innerHTML = '&#9733';
+        }else{
+            star.innerHTML = '&#9734';
+        }
+    });
+}
 
 function searchUser(){
     let rut = document.querySelector('#rut').value;
@@ -95,35 +92,62 @@ function searchUser(){
 
 }
 
+function validateForm(actividadNombre, estatus, avance, fechaTermino){
+    let formValid = true;
+    if(actividadNombre == ""){
+        window.alert("Debe introducir el nombre de la actividad.");
+        formValid = false;
+    }else if(estatus == ""){
+        window.alert("Debe seleccionar un estado de la actividad.");
+        formValid = false;
+    }else if(avance == ""){
+        window.alert("Debe introducir un porcentaje de actividad.");
+        formValid = false;
+    }else if(avance<0 || avance>100){
+        window.alert("El porcentaje de actividad debe ser entre 0% y 100%.");
+        formValid = false;
+    }else if(fechaTermino == ""){
+        window.alert("Debe elegir una fecha de termino.");
+        formValid = false;
+    }else if(current_star_level<1 || current_star_level>5){
+        window.alert("Debe calificar la prioridad entre 1 a 5 estrellas.");
+        formValid = false;
+    }
+    return formValid;
+}
+
 function addTask(){
-    tareasRegistradas++;
-    let tabla = document.getElementById('tablaEncargados');
-    let filaN = document.createElement('tr');
-    
-    let rut = document.querySelector('#rut').value;
     let actividadNombre = document.querySelector('#nombreAct').value;
     let estatus = document.querySelector('#selectEstatus').value;
     let avance = document.querySelector('#avance').value;
     let fechaTermino = document.querySelector('#fechaTermino').value;
-    console.log(fechaTermino)
-    let barra =  crearBarra(avance);
-    let fecha = new Date(fechaTermino);
-    let fechaFinal = fecha.getDay()+' '+meses[fecha.getMonth()];
-    
-    let tablaEstrella = document.createElement('table');
-    crearRating(tablaEstrella);
+    if(rutFinded && validateForm(actividadNombre, estatus, avance, fechaTermino)){
+        tareasRegistradas++;
+        let rut = document.querySelector('#rut').value;
+        let tabla = document.getElementById('tablaEncargados');
+        let filaN = document.createElement('tr');
+        console.log(fechaTermino)
+        let barra =  crearBarra(avance);
+        let fecha = new Date(fechaTermino);
+        let fechaFinal = fecha.getDay()+' '+meses[fecha.getMonth()];
+        
+        let tablaEstrella = document.createElement('table');
+        crearRating(tablaEstrella);
 
-    insertarDatos(
-        filaN,
-        rut,
-        tareasRegistradas,
-        actividadNombre,
-        estatus,
-        barra,
-        fechaFinal,
-        tablaEstrella
-    );
-    tabla.appendChild(filaN);
+        insertarDatos(
+            filaN,
+            rut,
+            tareasRegistradas,
+            actividadNombre,
+            estatus,
+            barra,
+            fechaFinal,
+            tablaEstrella
+        );
+        tabla.appendChild(filaN);
+    }else if(!rutFinded){
+        window.alert("Primero debe buscar el RUT ingresado")
+    }
 }
 
 function crearBarra(avance){
@@ -190,7 +214,17 @@ function insertarDatos(tupla,rut,numeroTupla,actividad,estatus,avance,fechaTermi
     tupla.appendChild(dato5);
     tupla.appendChild(dato6);
     tupla.appendChild(dato7);
-    document.getElementById('form-actividad').reset();
+    clearInputs()
+    rutFinded = false;
 }
 
-
+function clearInputs(){
+    document.querySelector('#nombreAct').value = "";
+    document.querySelector('#selectEstatus').value = "";
+    document.querySelector('#avance').value = "";
+    document.querySelector('#fechaTermino').value = "";
+    document.querySelector('#rut').value = "";
+    document.querySelector('#nombre').value = "";
+    document.querySelector('#logoUser').src =userLogo;
+    colorStars(0)
+}
