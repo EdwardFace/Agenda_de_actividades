@@ -50,7 +50,14 @@ const userLogo = "img/user.png";
 let encargados = [
     new Encargado("20.405.123-1","Eduardo Contreras",'img/users/1.jpg'),
     new Encargado("11.912.485-5","Mario Cifuentes","img/users/2.jpg"),
-    new Encargado("5.678.154-1","Ezio Auditore","")
+    new Encargado("5.678.154-1","Ezio Auditore","img/users/3.jpg"),
+    new Encargado("20.506.194-9","Shay Cormac","img/users/4.jpg"),
+    new Encargado("14.784.160-4","Aquiles Davenport","img/users/5.jpg"),
+    new Encargado("17.532.156-9","Cristina Vespucci","img/users/6.jpg"),
+    new Encargado("18.574.913-7","Maria Nieves","img/users/7.jpg"),
+    new Encargado("13.964.141-8","Aveline Gramphe","img/users/88.jpg"),
+    new Encargado("20.845.134-9","Andrea Paz","img/users/9.jpg"),
+    new Encargado("18.174.184-1","Susy Garrido","img/users/10.jpg")
 ];
 let meses = ['en','febr','mzo','abr','my','jun','jul','ag','sept','oct','nov','dic'];
 
